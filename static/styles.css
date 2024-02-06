@@ -59,4 +59,9 @@ main {
     font-size: 1.15rem;
     border-radius: 8px;
   }
+
+  #heading {
+    font-size: 1.65rem;
+    text-align: center;
+  }
 }

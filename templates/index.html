@@ -9,17 +9,17 @@
 <body>
     <main>
         <div id="menu">
-            <button>Miliseconds</button>
-            <button>Seconds</button>
-            <button>Minutes</button>
-            <button>Hours</button>
-            <button>Days</button>
+            <button id="btn-ms">Milliseconds</button>
+            <button id="btn-s">Seconds</button>
+            <button id="btn-min">Minutes</button>
+            <button id="btn-h">Hours</button>
+            <button id="btn-d">Days</button>
         </div>
         <h1 id="heading">Days Until Calvin's Last Day</h1>
-        <h2 id="unit"><span id="time">{{ time_unit }}</span> days</h2>
+        <h2 id="display"><span id="time">{{ time_unit }}</span> <span id="unit">days</span></span></h2>
         <div id="mobile-menu">
             <select name="menu" id="menu-dropdown">
-                <option value="miliseconds">Miliseconds</option>
+                <option value="miliseconds">Milliseconds</option>
                 <option value="seconds">Seconds</option>
                 <option value="minutes">Minutes</option>
                 <option value="hours">Hours</option>
@@ -27,5 +27,6 @@
             </select>
         </div>
     </main>
+    <script src="{{ url_for('static', filename='main.js') }}" ></script>
 </body>
 </html>

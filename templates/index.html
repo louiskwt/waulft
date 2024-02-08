@@ -15,8 +15,13 @@
             <button id="btn-h">Hours</button>
             <button id="btn-d">Days</button>
         </div>
-        <h1 id="heading"><span id="unit-heading">{{ "Days" if time_unit > 1 else "Day" }}</span> Until Calvin's Last Day</h1>
-        <h2 id="display"><span id="time">{{ time_unit }}</span> <span id="unit">Days</span></span></h2>
+        {% if time_unit < 1 %}
+            <h1 id="heading">Today is Calvin's Last Day 🍾</h1>
+            <h2 id="display"><span id="time"></span> <span id="unit"></span></span></h2>
+        {% else %}
+            <h1 id="heading"><span id="unit-heading">{{ "Days" if time_unit > 1 else "Day" }}</span> Until Calvin's Last Day</h1>
+            <h2 id="display"><span id="time">{{ time_unit }}</span> <span id="unit">Days</span></span></h2>
+        {% endif %}
         <div id="mobile-menu">
             <select name="menu" id="menu-dropdown">
                 <option value="milliseconds">Milliseconds</option>

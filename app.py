@@ -5,7 +5,10 @@ app = Flask(__name__)
 
 @app.route("/")
 def main():
-    today = datetime.date.today()
-    until = datetime.date(2024, 2, 9)
-    diff = (until - today).days
-    return render_template('index.html', time_unit=diff)
+    today = datetime.datetime.now()
+    until = datetime.datetime(2024, 2, 9, 14)
+    diff = (until - today).seconds
+    diff_hour = diff / 3600
+    diff_day = 0 if diff_hour < 24 else diff_hour * 24
+
+    return render_template('index.html', time_unit=diff_day, time_left=diff)

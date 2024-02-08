@@ -1,6 +1,6 @@
 "use strict";
 
-function handleUnitChange(btn, value, currentUnit) {
+function handleUnitChange(btn, value, currentUnit, unitHeading) {
   btn.addEventListener("click", () => {
     console.log(btn.textContent, currentUnit.textContent, value.textContent);
     switch (true) {
@@ -9,6 +9,7 @@ function handleUnitChange(btn, value, currentUnit) {
           const newValue = localStorage.getItem("time");
           value.textContent = newValue;
           currentUnit.textContent = newValue > 1 ? "days" : "day";
+          unitHeading.textContent = newValue > 1 ? "Days" : "Day";
         }
         break;
       case btn.textContent.toLowerCase() === "hours":
@@ -16,6 +17,7 @@ function handleUnitChange(btn, value, currentUnit) {
           const newValue = localStorage.getItem("time") * 24;
           value.textContent = newValue;
           currentUnit.textContent = newValue > 1 ? "hours" : "hour";
+          unitHeading.textContent = newValue > 1 ? "Hours" : "Hour";
         }
         break;
       case btn.textContent.toLowerCase() === "minutes":
@@ -24,6 +26,7 @@ function handleUnitChange(btn, value, currentUnit) {
           const newValue = localStorage.getItem("time") * 24 * 60;
           value.textContent = newValue;
           currentUnit.textContent = newValue > 1 ? "minutes" : "minute";
+          unitHeading.textContent = newValue > 1 ? "Minutes" : "Minute";
         }
         break;
       case btn.textContent.toLowerCase() === "seconds":
@@ -31,6 +34,7 @@ function handleUnitChange(btn, value, currentUnit) {
           const newValue = localStorage.getItem("time") * 24 * 60 ** 2;
           value.textContent = newValue;
           currentUnit.textContent = newValue > 1 ? "seconds" : "second";
+          unitHeading.textContent = newValue > 1 ? "Seconds" : "Second";
         }
         break;
       case btn.textContent.toLowerCase() === "milliseconds":
@@ -38,23 +42,26 @@ function handleUnitChange(btn, value, currentUnit) {
           const newValue = localStorage.getItem("time") * 24 * 60 ** 2 * 1000;
           value.textContent = newValue;
           currentUnit.textContent = newValue > 1 ? "milliseconds" : "millisecond";
+          unitHeading.textContent = newValue > 1 ? "Milliseconds" : "Millisecond";
         }
         break;
       default:
         value.textContent = localStorage.getItem("time");
         currentUnit.textContent = localStorage.getItem("time") > 1 ? "days" : "day";
+        unitHeading.textContent = localStorage.getItem("time") > 1 ? "Days" : "Day";
         break;
     }
   });
 }
 
-function handleUnitSelect(currentUnit, target, value) {
+function handleUnitSelect(currentUnit, unitHeading, target, value) {
   switch (true) {
     case target === "days":
       if (["day", "days"].includes(currentUnit.textContent) === false) {
         const newValue = localStorage.getItem("time");
         value.textContent = newValue;
         currentUnit.textContent = newValue > 1 ? "days" : "day";
+        unitHeading.textContent = newValue > 1 ? "Days" : "Day";
       }
       break;
     case target === "hours":
@@ -62,6 +69,7 @@ function handleUnitSelect(currentUnit, target, value) {
         const newValue = localStorage.getItem("time") * 24;
         value.textContent = newValue;
         currentUnit.textContent = newValue > 1 ? "hours" : "hour";
+        unitHeading.textContent = newValue > 1 ? "Hours" : "Hour";
       }
       break;
     case target === "minutes":
@@ -70,6 +78,7 @@ function handleUnitSelect(currentUnit, target, value) {
         const newValue = localStorage.getItem("time") * 24 * 60;
         value.textContent = newValue;
         currentUnit.textContent = newValue > 1 ? "minutes" : "minute";
+        unitHeading.textContent = newValue > 1 ? "Minutes" : "Minute";
       }
       break;
     case target === "seconds":
@@ -77,6 +86,7 @@ function handleUnitSelect(currentUnit, target, value) {
         const newValue = localStorage.getItem("time") * 24 * 60 ** 2;
         value.textContent = newValue;
         currentUnit.textContent = newValue > 1 ? "seconds" : "second";
+        unitHeading.textContent = newValue > 1 ? "Seconds" : "Second";
       }
       break;
     case target === "milliseconds":
@@ -84,6 +94,7 @@ function handleUnitSelect(currentUnit, target, value) {
         const newValue = localStorage.getItem("time") * 24 * 60 ** 2 * 1000;
         value.textContent = newValue;
         currentUnit.textContent = newValue > 1 ? "milliseconds" : "millisecond";
+        unitHeading.textContent = newValue > 1 ? "Milliseconds" : "Millisecond";
       }
       break;
     default:
@@ -101,19 +112,20 @@ window.onload = function () {
   const btnMillisecond = document.getElementById("btn-ms");
 
   const unit = document.getElementById("unit");
+  const unitHeading = document.getElementById("unit-heading");
   const time = document.getElementById("time");
 
   localStorage.setItem("time", +time.textContent);
 
-  handleUnitChange(btnDay, time, unit);
-  handleUnitChange(btnHour, time, unit);
-  handleUnitChange(btnMinute, time, unit);
-  handleUnitChange(btnSecond, time, unit);
-  handleUnitChange(btnMillisecond, time, unit);
+  handleUnitChange(btnDay, time, unit, unitHeading);
+  handleUnitChange(btnHour, time, unit, unitHeading);
+  handleUnitChange(btnMinute, time, unit, unitHeading);
+  handleUnitChange(btnSecond, time, unit, unitHeading);
+  handleUnitChange(btnMillisecond, time, unit, unitHeading);
 
   // handle mobile select
   const select = document.getElementById("menu-dropdown");
   select.addEventListener("change", (e) => {
-    handleUnitSelect(unit, e.target.value, time);
+    handleUnitSelect(unit, unitHeading, e.target.value, time);
   });
 };

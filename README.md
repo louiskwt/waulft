@@ -13,6 +13,9 @@ First, set up the virtual envrionment
 ```
     python -m venv .env
     source .env/bin/activate
+
+    env/Scripts/activate.bat //In CMD for Windows user
+    env/Scripts/Activate.ps1 //In Powershel for Windows user
 ```
 
 Next, install all the required packages in your terminal

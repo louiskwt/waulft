@@ -32,6 +32,14 @@ flask run --debug
 
 Head to `http://127.0.0.1:5000` to view it
 
+# Roadmap
+
+- Extends it for other people to use by entering their name and date
+
+- Enable social sharing
+
+- Added Database to store data for analysis
+
 # Contributors
 
 **Add your name by submitting a pull request if you want to contribue**

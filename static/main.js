@@ -2,7 +2,6 @@
 
 function handleUnitChange(btn, value, currentUnit, unitHeading) {
   btn.addEventListener("click", () => {
-    console.log(btn.textContent, currentUnit.textContent, value.textContent);
     switch (true) {
       case btn.textContent.toLowerCase() === "days":
         if (["day", "days"].includes(currentUnit.textContent) === false) {
@@ -73,7 +72,6 @@ function handleUnitSelect(currentUnit, unitHeading, target, value) {
       }
       break;
     case target === "minutes":
-      console.log(currentUnit.textContent, "here");
       if (["minute", "minutes"].includes(currentUnit.textContent) === false) {
         const newValue = localStorage.getItem("time") * 24 * 60;
         value.textContent = newValue;

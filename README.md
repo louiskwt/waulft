@@ -4,4 +4,31 @@ A simple yet sophisticated app for people to keep track of what they are looking
 
 Developed for a friend
 
+# Try it out
+
+The following instructions assume that you have python installed
+
+First, set up the virtual envrionment
+
+```
+    python -m venv .env
+    source .env/bin/activate
+```
+
+Next, install all the required packages in your terminal
+
+```
+pip install -r requirements. txt
+```
+
+Finally, start the app by running
+
+```
+flask run --debug
+```
+
+Head to `http://127.0.0.1:5000` to view it
+
 # Contributors
+
+**Add your name by submitting a pull request if you want to contribue**

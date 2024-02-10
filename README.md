@@ -21,7 +21,7 @@ First, set up the virtual envrionment
 Next, install all the required packages in your terminal
 
 ```
-pip install -r requirements. txt
+pip install -r requirements.txt
 ```
 
 Finally, start the app by running
